@@ -58,7 +58,14 @@ public class AddNewCategory extends BaseTestBT {
     }
     @Test
     public void deleteCategory(){
-
+        clickElement(menuProduct);
+        clickElement(submenuCategory);
+        setTextHasEnter(inputSearchCategories,CATEGORIES_NAME);
+        sleep(3);
+        clickElement(btnDelete);
+        sleep(2);
+        Assert.assertTrue(driver.findElement(By.xpath(popupDialog)).isDisplayed(),"Fail! không hiển thị.");
+        clickElement(btnDelete);
     }
 
 }
