@@ -35,6 +35,9 @@ public class LocatorsCMS {
     public static String btnSaveCategories = "//button[normalize-space()='Save']";
     public static String inputSearchCategories = "//input[@id='search']";
     public static String tdName = "(//table[starts-with(@class,'table aiz-table')]//tbody//tr)[1]//td[2]";
-    public static String btnDelete = "//a[@id='delete-link']";
+    public static String btnDelete = "//a[contains(@class,'confirm-delete')]";
+    public static String btnDeleteSuccess = "//a[@id='delete-link']";
     public static String popupDialog ="//div[@class='modal-content']//h4[normalize-space()='Delete Confirmation']";
+    public static String messDelete ="//span[normalize-space()='Category has been deleted successfully']";
+    public static String btnEdit ="";
 }

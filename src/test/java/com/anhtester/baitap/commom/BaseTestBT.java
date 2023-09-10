@@ -59,7 +59,7 @@ public class BaseTestBT {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 
         driver.get(URL_CMS);
-        Assert.assertTrue(driver.findElement(By.xpath(headerLoginPage)).isDisplayed(),"Fail!");
+        Assert.assertTrue(checkDisplayElement(headerLoginPage),"Fail!");
         setText(inputEmail,Username);
         setText(inputPassword,Password);
         clickElement(buttonLogin);
@@ -136,7 +136,10 @@ public class BaseTestBT {
         select_parent.selectByVisibleText(text);
     }
 
-    public void getText(String locator){
-        driver.findElement(By.xpath(locator)).getText();
+    public String getText(String locator){
+        return driver.findElement(By.xpath(locator)).getText();
+    }
+    public Boolean checkDisplayElement(String locator){
+        return driver.findElement(By.xpath(locator)).isDisplayed();
     }
 }

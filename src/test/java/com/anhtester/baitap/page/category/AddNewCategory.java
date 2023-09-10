@@ -2,7 +2,6 @@ package com.anhtester.baitap.page.category;
 
 import com.anhtester.baitap.commom.BaseTestBT;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,17 +18,16 @@ public class AddNewCategory extends BaseTestBT {
     String ICON_NAME = "Fpt-icon";
     String ATTRIBUTE = "Size";
 
+
     @Test
     public void addNewCategory() {
-        Assert.assertTrue(driver.findElement(By.xpath(menuProduct)).isDisplayed(), "Fail!");
+        Assert.assertTrue(checkDisplayElement(menuProduct), "Fail!");
         clickElement(menuProduct);
         clickElement(submenuCategory);
-        Assert.assertTrue(driver.findElement(By.xpath(headerCategory)).isDisplayed(), "Fail!");
+        Assert.assertTrue(checkDisplayElement(headerCategory), "Fail!");
         clickElement(btnAddNewCategory);
-        Assert.assertTrue(driver.findElement(By.xpath(headerAddNewCategoty)).isDisplayed(), "Fail!");
+        Assert.assertTrue(checkDisplayElement(headerAddNewCategoty), "Fail!");
         setText(inputCategoriesName, CATEGORIES_NAME);
-//        Select select_parent = new Select(driver.findElement(By.xpath(sellectID)));
-//        select_parent.selectByVisibleText("Demo category 1");
         chooseDropdown(sellectID, PARENT_OPTION);
         setText(inputOrderingNumber, CATEGORIES_ORDERING_NUMBER);
         chooseDropdown(selectType,TYPE_OPTION);
@@ -51,21 +49,9 @@ public class AddNewCategory extends BaseTestBT {
         clickElement(btnSaveCategories);
 
 
-        Assert.assertTrue(driver.findElement(By.xpath(headerCategory)).isDisplayed(), "Fail!");
+        Assert.assertTrue(checkDisplayElement(headerCategory), "Fail!");
         setTextHasEnter(inputSearchCategories,CATEGORIES_NAME);
         sleep(3);
-        Assert.assertEquals(driver.findElement(By.xpath(tdName)).getText(),CATEGORIES_NAME,"Fail! Không đúng tên nhập vào.");
+        Assert.assertEquals(getText(tdName),CATEGORIES_NAME,"Fail! Không đúng tên nhập vào.");
     }
-    @Test
-    public void deleteCategory(){
-        clickElement(menuProduct);
-        clickElement(submenuCategory);
-        setTextHasEnter(inputSearchCategories,CATEGORIES_NAME);
-        sleep(3);
-        clickElement(btnDelete);
-        sleep(2);
-        Assert.assertTrue(driver.findElement(By.xpath(popupDialog)).isDisplayed(),"Fail! không hiển thị.");
-        clickElement(btnDelete);
-    }
-
 }
