@@ -142,4 +142,7 @@ public class BaseTestBT {
     public Boolean checkDisplayElement(String locator){
         return driver.findElement(By.xpath(locator)).isDisplayed();
     }
+    public void clearText(String locator){
+        driver.findElement(By.xpath(locator)).clear();
+    }
 }

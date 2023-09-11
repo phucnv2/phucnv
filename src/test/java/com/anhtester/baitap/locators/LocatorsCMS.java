@@ -39,5 +39,7 @@ public class LocatorsCMS {
     public static String btnDeleteSuccess = "//a[@id='delete-link']";
     public static String popupDialog ="//div[@class='modal-content']//h4[normalize-space()='Delete Confirmation']";
     public static String messDelete ="//span[normalize-space()='Category has been deleted successfully']";
-    public static String btnEdit ="";
+    public static String btnEdit ="(//a[contains(@title,'Edit')])[1]";
+    public static String messUpdate ="//span[normalize-space()='Category has been updated successfully']";
+
 }
