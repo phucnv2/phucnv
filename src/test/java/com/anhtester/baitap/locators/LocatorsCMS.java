@@ -11,7 +11,7 @@ public class LocatorsCMS {
     //Dashboard
     public static String menuProduct = "//span[normalize-space()='Products']";
     public static String submenuCategory = "//span[normalize-space()='Category']";
-
+    public static String submenuProduct = "//span[normalize-space()='Add New Product']";
     // Category
     public static String headerCategory = "//h1[normalize-space()='All categories']";
     public static String btnAddNewCategory = "//a[@class='btn btn-primary']";
@@ -37,9 +37,19 @@ public class LocatorsCMS {
     public static String tdName = "(//table[starts-with(@class,'table aiz-table')]//tbody//tr)[1]//td[2]";
     public static String btnDelete = "//a[contains(@class,'confirm-delete')]";
     public static String btnDeleteSuccess = "//a[@id='delete-link']";
-    public static String popupDialog ="//div[@class='modal-content']//h4[normalize-space()='Delete Confirmation']";
-    public static String messDelete ="//span[normalize-space()='Category has been deleted successfully']";
-    public static String btnEdit ="(//a[contains(@title,'Edit')])[1]";
-    public static String messUpdate ="//span[normalize-space()='Category has been updated successfully']";
+    public static String popupDialog = "//div[@class='modal-content']//h4[normalize-space()='Delete Confirmation']";
+    public static String messDelete = "//span[normalize-space()='Category has been deleted successfully']";
+    public static String btnEdit = "(//a[contains(@title,'Edit')])[1]";
+    public static String messUpdate = "//span[normalize-space()='Category has been updated successfully']";
+// Product
+
+    public static String headerAddNewProduct = "//h5[normalize-space()='Add New Product']";
+    public static String inputProductName ="//input[@placeholder='Product Name']";
+    public static String dropdownCategory="//button[@data-id='category_id']";
+    public static String inputSearchCategory="//div[@class='dropdown-menu show']//input[@aria-label='Search']";
+
+    public static String touch ="//div[@class='col-md-1']//span";
+    public static String buttonColor ="//button[@data-id=\"colors\"]";
+    public static String searchColor ="//div[@class='dropdown-menu show']//input[@aria-label='Search']";
 
 }

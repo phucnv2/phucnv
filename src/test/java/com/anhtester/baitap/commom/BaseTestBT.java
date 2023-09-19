@@ -1,11 +1,10 @@
 package com.anhtester.baitap.commom;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -15,17 +14,20 @@ import org.testng.annotations.Parameters;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
 import static com.anhtester.baitap.locators.LocatorsCMS.*;
+import org.openqa.selenium.JavascriptExecutor;
 
 
 public class BaseTestBT {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     public String URL_CRM = "https://crm.anhtester.com/admin/authentication";
     public String URL_CMS = "https://cms.anhtester.com/login";
     String Username = "admin@example.com";
@@ -130,6 +132,13 @@ public class BaseTestBT {
         driver.findElement(By.xpath(locator)).click();
         driver.findElement(By.xpath(locator_text)).sendKeys((text), Keys.ENTER);
         driver.findElement(By.xpath(locator)).click();
+    }    public void clickDropdownHasEnterAndClick1(String locator, String locator_text, String text){
+        driver.findElement(By.xpath(locator)).click();
+        driver.findElement(By.xpath(locator_text)).sendKeys((text), Keys.ENTER);
+        Actions action = new Actions(driver);
+        //Ctrl + a để bôi đen
+        action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.DELETE).build().perform();
+//        action.keyDown( Keys.CONTROL ).sendKeys( "a" ).build().perform();
     }
     public void chooseDropdown(String locator, String text){
         Select select_parent = new Select(driver.findElement(By.xpath(locator)));
@@ -144,5 +153,11 @@ public class BaseTestBT {
     }
     public void clearText(String locator){
         driver.findElement(By.xpath(locator)).clear();
+    }
+    public static void scrollToElementWithJS() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        WebElement element = driver.findElement(By.xpath(locator));
+//        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        js.executeScript("window.scrollTo(0,500)");
     }
 }

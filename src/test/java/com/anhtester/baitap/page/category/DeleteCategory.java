@@ -12,7 +12,7 @@ public class DeleteCategory extends BaseTestBT {
     public void deleteCategory() {
         clickElement(menuProduct);
         clickElement(submenuCategory);
-        setTextHasEnter(inputSearchCategories,"Add New Category - test");
+        setTextHasEnter(inputSearchCategories,"Phucs");
         sleep(3);
         clickElement(btnDelete);
         sleep(2);

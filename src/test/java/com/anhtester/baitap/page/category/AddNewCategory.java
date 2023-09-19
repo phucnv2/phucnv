@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.anhtester.baitap.locators.LocatorsCMS.*;
 
 public class AddNewCategory extends BaseTestBT {
-    String CATEGORIES_NAME = "Phucs";
+    public String CATEGORIES_NAME = "Phucs";
     String CATEGORIES_ORDERING_NUMBER = "1";
     String PARENT_OPTION = "Demo category 1";
     String TYPE_OPTION = "Physical";
