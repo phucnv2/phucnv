@@ -14,9 +14,7 @@ public class EditCategory extends BaseTestBT {
         clickElement(submenuCategory);
         setTextHasEnter(inputSearchCategories,"Add New Category - test");
         sleep(3);
-
         clickElement(btnEdit);
-
         clearText(inputCategoriesName);
         setText(inputCategoriesName, a.CATEGORIES_NAME);
         chooseDropdown(sellectID, a.PARENT_OPTION);
@@ -27,20 +25,20 @@ public class EditCategory extends BaseTestBT {
         sleep(2);
         clickElement(chooseImage);
         clickElement(btnAddFile);
-
         clickElement(inputIcon);
         setText(inputSearchImages,a.ICON_NAME);
         sleep(2);
         clickElement(chooseImage);
         clickElement(btnAddFile);
-
         setText(inputMetaTitle,a.CATEGORIES_META_TITLE);
         setText(inputMetaDescription,a.CATEGORIES_META_DESCRIPTION);
         chooseDropdown(selectAttribute, a.ATTRIBUTE);
         clickElement(btnSaveCategories);
-
-
         Assert.assertTrue(checkDisplayElement(messUpdate),"Fail! Chưa click nút edit!");
         Assert.assertEquals(getText(messUpdate),"Category has been updated successfully","Fail! Xóa không thành công.");
+
+        //Verify data sau khi sửa
+        setTextHasEnter(inputSearchCategories,a.CATEGORIES_NAME);
+        sleep(3);
     }
 }
